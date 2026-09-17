@@ -6,6 +6,7 @@
   <meta name="description" content="SCAM-LINK AI — synthetic prototype for cross-case scam intelligence fusion" />
   <title>SCAM-LINK AI — Intelligence Fusion Prototype</title>
   <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./simulation.css" />
 </head>
 <body>
   <div class="app-shell">
@@ -16,10 +17,11 @@
       </div>
       <nav class="nav" aria-label="เมนูหลัก">
         <button class="nav-item active" data-view="overview"><span>01</span> Command Overview</button>
-        <button class="nav-item" data-view="case"><span>02</span> Case Intelligence</button>
-        <button class="nav-item" data-view="network"><span>03</span> Network Explorer</button>
-        <button class="nav-item" data-view="leads"><span>04</span> Investigation Leads</button>
-        <button class="nav-item" data-view="architecture"><span>05</span> Evidence Architecture</button>
+        <button class="nav-item" id="nav-simulation"><span>02</span> Live Scenario</button>
+        <button class="nav-item" data-view="case"><span>03</span> Case Intelligence</button>
+        <button class="nav-item" data-view="network"><span>04</span> Network Explorer</button>
+        <button class="nav-item" data-view="leads"><span>05</span> Investigation Leads</button>
+        <button class="nav-item" data-view="architecture"><span>06</span> Evidence Architecture</button>
       </nav>
       <div class="sidebar-note"><div class="status-dot"></div><div><strong>Proposal Prototype</strong><span>ข้อมูลทั้งหมดเป็นข้อมูลสังเคราะห์</span></div></div>
     </aside>
@@ -50,6 +52,75 @@
           <article class="panel"><div class="panel-heading compact"><div><p class="eyebrow">CAMPAIGN SIGNAL</p><h2>Scam Campaign Fingerprint</h2></div></div><div id="campaign-card"></div></article>
         </div>
         <article class="panel"><div class="panel-heading"><div><p class="eyebrow">RECENT SYNTHETIC CASES</p><h2>คดีล่าสุดในชุดข้อมูลสาธิต</h2></div><button class="text-button" data-goto="case">ไปหน้า Case Intelligence →</button></div><div id="overview-case-table" class="table-wrap"></div></article>
+      </section>
+
+      <section id="view-simulation" class="view">
+        <div class="scenario-shell">
+          <div class="scenario-hero">
+            <article class="panel scenario-intro">
+              <div>
+                <p class="eyebrow"><span class="scenario-live-dot"></span>LIVE SYNTHETIC SCENARIO</p>
+                <h2>ถ้ามีคดีใหม่เข้ามา SCAM-LINK จะค้นพบอะไรต่อเป็นลำดับ?</h2>
+                <p>จำลองตั้งแต่รับ Evidence ใหม่ → สกัด Entity → เชื่อมคดีเก่า → พบ Campaign → ขยายเส้นทางเงิน → สร้าง Investigation Lead → ส่งให้เจ้าหน้าที่ตรวจ</p>
+              </div>
+              <div class="scenario-controls" aria-label="ควบคุมสถานการณ์จำลอง">
+                <button type="button" id="scenario-play">เล่นอัตโนมัติ ▶</button>
+                <button type="button" id="scenario-prev" class="secondary">← ก่อนหน้า</button>
+                <button type="button" id="scenario-next" class="secondary">ถัดไป →</button>
+                <button type="button" id="scenario-reset" class="secondary">รีเซ็ต</button>
+              </div>
+            </article>
+            <article class="panel">
+              <p class="eyebrow">LIVE IMPACT</p>
+              <div class="scenario-summary">
+                <div class="scenario-stat"><span>Cases in context</span><strong id="scenario-count-cases">1</strong></div>
+                <div class="scenario-stat"><span>Entities found</span><strong id="scenario-count-entities">0</strong></div>
+                <div class="scenario-stat"><span>Graph nodes</span><strong id="scenario-count-nodes">1</strong></div>
+                <div class="scenario-stat"><span>Leads created</span><strong id="scenario-count-leads">0</strong></div>
+              </div>
+            </article>
+          </div>
+
+          <div class="scenario-grid">
+            <aside class="panel">
+              <p class="eyebrow">EVENT TIMELINE</p>
+              <div id="scenario-timeline" class="scenario-timeline"></div>
+            </aside>
+            <div class="scenario-stage">
+              <div class="scenario-stage-top">
+                <article class="panel scenario-event">
+                  <div class="scenario-event-head"><span id="scenario-time" class="scenario-time">08:42:11</span><span id="scenario-kind" class="scenario-kind">INPUT</span></div>
+                  <h2 id="scenario-title">รับแจ้งคดีใหม่เข้าสู่ระบบ</h2>
+                  <p id="scenario-copy" class="scenario-event-copy"></p>
+                  <div class="scenario-trigger"><span>สิ่งที่เข้ามา / Trigger</span><strong id="scenario-trigger-value"></strong></div>
+                  <div id="scenario-outputs" class="scenario-output-list"></div>
+                </article>
+                <article class="panel scenario-why">
+                  <p class="eyebrow">WHY THIS FOLLOWED</p>
+                  <h2>ทำไมระบบถึงเดินมาถึงขั้นนี้</h2>
+                  <ul id="scenario-why-list"></ul>
+                  <div class="scenario-confidence">
+                    <div class="scenario-confidence-head"><span id="scenario-confidence-label">Evidence received</span><strong id="scenario-confidence-value">100%</strong></div>
+                    <div class="scenario-confidence-bar"><div id="scenario-confidence" class="scenario-confidence-fill" style="width:100%"></div></div>
+                  </div>
+                </article>
+              </div>
+
+              <article class="panel scenario-network">
+                <div class="scenario-network-head">
+                  <div><p class="eyebrow">GRAPH GROWS WITH EACH EVENT</p><h2>เครือข่ายจะค่อย ๆ เปิดเผยเมื่อมีข้อมูลรองรับ</h2></div>
+                  <div class="scenario-network-legend"><span><i class="legend-dot case-dot"></i>Case</span><span><i class="legend-dot account-dot"></i>Account</span><span><i class="legend-dot digital-dot"></i>Digital</span><span><i class="legend-dot inferred-dot"></i>AI hypothesis</span></div>
+                </div>
+                <div id="scenario-network-svg" class="scenario-network-svg"></div>
+              </article>
+
+              <div class="scenario-audit">
+                <div class="scenario-audit-card"><strong>Provenance preserved</strong><p>Fact และ relationship ที่แสดงใน scenario ถูกออกแบบให้มี source reference, timestamp และ method เพื่อย้อนกลับไปตรวจ Evidence ต้นทางได้</p></div>
+                <div class="scenario-audit-card"><strong>Human control</strong><p id="scenario-audit-status">Step 1/7 · evidence provenance retained</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="view-case" class="view">
@@ -98,5 +169,6 @@
   </div>
   <script src="./data/demo-data.js"></script>
   <script src="./app.js"></script>
+  <script src="./simulation.js"></script>
 </body>
 </html>
