@@ -1,61 +1,87 @@
 # SCAM-LINK — 3-Minute Demo Script
 
-## 0:00–0:30 — ตั้งโจทย์
+## 0:00–0:25 — ตั้งโจทย์
 
 เปิดหน้า **Command Overview**
 
 > “ปัญหาที่เราจะทดลองแก้ไม่ใช่การรับแจ้งคดีเพิ่ม แต่คือเมื่อมีคดีใหม่เข้ามา เจ้าหน้าที่จะรู้ได้เร็วแค่ไหนว่าคดีนี้เกี่ยวข้องกับเครือข่ายเดิมหรือไม่”
 
-ชี้ให้เห็นป้าย **SYNTHETIC DEMO** เพื่อยืนยันว่าข้อมูลทั้งหมดใน prototype เป็นข้อมูลจำลอง
+ชี้ป้าย **SYNTHETIC DEMO** เพื่อยืนยันว่าข้อมูลทั้งหมดใน prototype เป็นข้อมูลจำลอง
 
-## 0:30–1:15 — Case Intelligence
+จากนั้นเปิด **Live Scenario** และกด **เล่นอัตโนมัติ**
 
-เปิด `CSD-DEMO-001`
+## 0:25–1:45 — Live Scenario: มีข้อมูลใหม่เข้ามา แล้วอะไรตามมา
 
-ชี้ให้เห็น entity ที่ระบบสกัดจากหลักฐาน:
+### Step 1 — New case
 
-- Phone
-- LINE
-- Bank account
-- Domain
+คดีจำลอง `CSD-LIVE-001` เข้ามาพร้อม Chat, Slip และ URL
 
-จากนั้นชี้ **Linked Cases**
+> “ตอนนี้ระบบยังไม่สรุปอะไร เรามีเพียง Raw Evidence ที่ต้องรักษา provenance ไว้”
 
-> “คดี 001 กับคดี 004 เชื่อมกันจาก exact bank-account match ส่วนคดีอื่นอาจเชื่อมจาก LINE identity หรือ behavioral pattern โดยระบบแสดงเหตุผลของแต่ละ link แยกกัน”
+### Step 2 — Entity extraction
 
-เปิด Evidence เพื่อย้ำว่า relationship ย้อนกลับถึง source ได้
+AI สกัด Account, Phone, LINE และ Domain
 
-## 1:15–2:00 — Network Explorer
+> “สิ่งที่ AI อ่านได้จะถูกเก็บเป็น Extracted Facts และทุกค่าต้องย้อนกลับไปยังหลักฐานต้นฉบับได้”
+
+### Step 3 — Cross-case match
+
+เมื่อเจอ `DEMO-ACCT-7742` ระบบค้นย้อนหลังและพบ exact match กับคดีเก่า 4 คดี
+
+> “นี่คือจุดที่คดีเดี่ยวเริ่มกลายเป็น network โดย exact identifier มีน้ำหนักสูงกว่า semantic similarity”
+
+### Step 4 — Campaign hypothesis
+
+ระบบพบว่าคดีอีกชุดหนึ่งมี script, domain pattern และ temporal behavior คล้าย `CAMP-017`
+
+> “ตรงนี้เป็น AI hypothesis ไม่ใช่ข้อเท็จจริง จึงแสดงเป็นเส้นประและเจ้าหน้าที่สามารถปฏิเสธได้”
+
+### Step 5 — Network expansion
+
+Graph ขยายจาก linked cases ไปยังบัญชีอื่น และพบเงินหลายเส้นทางไหลเข้าสู่ `DEMO-HUB-88`
+
+> “ระบบไม่ได้บอกว่าบัญชีนี้ผิด แต่ทำให้ investigator เห็นว่ามันเป็น node ที่ควรตรวจต่อ เพราะมีหลาย transaction และหลายคดีมารวมกัน”
+
+### Step 6 — Investigation lead
+
+SCAM-LINK สร้าง `LEAD-LIVE-001` พร้อมเหตุผล confidence และ evidence references
+
+> “Output ของ AI คือ lead สำหรับตรวจต่อ ไม่ใช่หมายจับ ไม่ใช่คำสั่งอายัด และไม่ใช่คำตัดสินความผิด”
+
+### Step 7 — Human review
+
+> “ก่อนผลวิเคราะห์ถูกนำไปใช้ เจ้าหน้าที่เปิดดู evidence provenance และเป็นผู้ยืนยัน ส่งกลับ หรือขอข้อมูลเพิ่มเติมตามกระบวนการที่เกี่ยวข้อง”
+
+ระหว่าง demo ให้ชี้ว่า graph โตตามข้อมูลที่เข้ามา ไม่ได้เปิดเผย relationship ทั้งหมดตั้งแต่ต้น
+
+## 1:45–2:20 — Drill-down ไปยัง Case Intelligence
+
+เปิด **Case Intelligence** แล้วเลือก `CSD-DEMO-001`
+
+ชี้ให้เห็น:
+
+- Entity ที่ระบบสกัด
+- Linked Cases
+- เหตุผลที่ใช้เชื่อม
+- Source Evidence
+
+> “Live Scenario แสดง workflow ส่วนหน้านี้คือ workspace ที่ investigator ใช้ตรวจรายละเอียดของแต่ละคดี”
+
+## 2:20–2:45 — Network Explorer
 
 เปิด **Network Explorer**
 
 ชี้เส้นทึบ = observed relationship และเส้นประ = analytic inference
 
-กด `DEMO-HUB-01`
+กด `DEMO-HUB-01` และ `CAMP-017`
 
-> “บัญชีนี้เป็น consolidation candidate จากหลายเส้นทาง แต่ระบบยังเรียกว่า candidate ไม่ใช่ข้อสรุปว่าบุคคลหรือบัญชีมีความผิด”
+> “Graph ไม่ได้มีแค่ความสัมพันธ์ แต่ต้องบอก provenance ว่าเส้นนี้มาจาก evidence ไหน เป็น observed fact หรือ AI hypothesis และมี confidence เท่าใด”
 
-กด `CAMP-017`
-
-> “Campaign เป็น AI hypothesis ซึ่งต้องผ่าน human review”
-
-## 2:00–2:35 — Campaign Fingerprint
-
-กลับไปดู `CSD-DEMO-011`
-
-> “จุดสำคัญคือคดี 011 ไม่มี identifier ตรงกับคดี 001 แต่มีพฤติกรรมคล้ายกันหลายด้าน เช่น script, transfer cadence และ infrastructure pattern ระบบจึงเสนอว่าควรตรวจสอบว่าอาจเป็น campaign เดียวกันหรือไม่”
-
-เน้นคำว่า **เสนอให้ตรวจสอบ** ไม่ใช่ **ตัดสินว่าใช่**
-
-## 2:35–3:00 — Investigation Lead
+## 2:45–3:00 — Investigation Lead
 
 เปิดหน้า **Investigation Leads**
 
-> “Output สุดท้ายของ AI ไม่ใช่หมายจับหรือคำสั่งอายัด แต่เป็น Investigation Lead พร้อมเหตุผล confidence และ evidence reference ให้เจ้าหน้าที่เป็นผู้ตรวจสอบและตัดสินใจ”
-
-ปิดด้วย North Star:
-
-> “ตัวชี้วัดหลักของโครงการคือ ลดเวลาจากการรับคดีใหม่ไปสู่การพบความเชื่อมโยงที่นำไปตรวจสอบต่อได้ โดยทุกผลลัพธ์ยังตรวจสอบย้อนกลับถึงหลักฐานต้นทางได้”
+> “North Star ของโครงการคือ ลดเวลาจากการรับคดีใหม่ไปสู่การพบความเชื่อมโยงที่มีหลักฐานรองรับและนำไปตรวจสอบต่อได้ โดยยังคง human-in-the-loop ตลอด workflow”
 
 ## Questions to expect
 
