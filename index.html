@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="SCAM-LINK AI — synthetic prototype for cross-case scam intelligence fusion" />
+  <title>SCAM-LINK AI — Intelligence Fusion Prototype</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">SL</div>
+        <div><strong>SCAM-LINK</strong><span>AI Intelligence Fusion</span></div>
+      </div>
+      <nav class="nav" aria-label="เมนูหลัก">
+        <button class="nav-item active" data-view="overview"><span>01</span> Command Overview</button>
+        <button class="nav-item" data-view="case"><span>02</span> Case Intelligence</button>
+        <button class="nav-item" data-view="network"><span>03</span> Network Explorer</button>
+        <button class="nav-item" data-view="leads"><span>04</span> Investigation Leads</button>
+        <button class="nav-item" data-view="architecture"><span>05</span> Evidence Architecture</button>
+      </nav>
+      <div class="sidebar-note"><div class="status-dot"></div><div><strong>Proposal Prototype</strong><span>ข้อมูลทั้งหมดเป็นข้อมูลสังเคราะห์</span></div></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div><p class="eyebrow">CSD / SCAM-LINK PILOT</p><h1 id="page-title">Command Overview</h1></div>
+        <div class="top-actions">
+          <label class="global-search"><span>ค้นหา</span><input id="global-search" type="search" placeholder="Case / บัญชี / เบอร์ / domain" autocomplete="off" /></label>
+          <div class="prototype-badge">SYNTHETIC DEMO</div>
+        </div>
+      </header>
+
+      <section class="demo-warning" role="note"><strong>Demo safety:</strong> เลขบัญชี เบอร์โทร บุคคล โดเมน และคดีในระบบนี้ถูกสร้างขึ้นเพื่อการสาธิตเท่านั้น ไม่ใช่ข้อมูลบุคคลหรือคดีจริง</section>
+
+      <section id="view-overview" class="view active-view">
+        <div id="overview-metrics" class="metric-grid"></div>
+        <div class="two-col">
+          <article class="panel hero-panel">
+            <div class="panel-heading"><div><p class="eyebrow">AI CROSS-CASE LINKAGE</p><h2>จากคดีเดี่ยว → เครือข่ายเดียวกัน</h2></div><button class="text-button" data-goto="network">เปิด Network Explorer →</button></div>
+            <div class="flow-visual">
+              <div class="flow-column victims"><span>CASE 001</span><span>CASE 004</span><span>CASE 007</span><span>CASE 011</span></div>
+              <div class="flow-arrow">→</div><div class="flow-column mule"><span>บัญชีม้า A</span><span>บัญชีม้า B</span></div>
+              <div class="flow-arrow">→</div><div class="flow-column hub"><span>Consolidation Node</span></div>
+            </div>
+            <p class="panel-caption">ระบบแยก <strong>ข้อเท็จจริงจากหลักฐาน</strong> ออกจาก <strong>ข้อสันนิษฐานเชิงวิเคราะห์</strong> และทุกความเชื่อมโยงสามารถย้อนกลับไปยัง evidence source ได้</p>
+          </article>
+          <article class="panel"><div class="panel-heading compact"><div><p class="eyebrow">CAMPAIGN SIGNAL</p><h2>Scam Campaign Fingerprint</h2></div></div><div id="campaign-card"></div></article>
+        </div>
+        <article class="panel"><div class="panel-heading"><div><p class="eyebrow">RECENT SYNTHETIC CASES</p><h2>คดีล่าสุดในชุดข้อมูลสาธิต</h2></div><button class="text-button" data-goto="case">ไปหน้า Case Intelligence →</button></div><div id="overview-case-table" class="table-wrap"></div></article>
+      </section>
+
+      <section id="view-case" class="view">
+        <div class="case-toolbar panel"><div><p class="eyebrow">INVESTIGATOR WORKSPACE</p><h2>เลือกคดีเพื่อดู evidence, entity และ cross-case links</h2></div><select id="case-selector" aria-label="เลือกคดี"></select></div>
+        <div id="case-detail"></div>
+      </section>
+
+      <section id="view-network" class="view">
+        <div class="network-layout">
+          <article class="panel network-panel"><div class="panel-heading"><div><p class="eyebrow">CRIME KNOWLEDGE GRAPH</p><h2>Network Explorer</h2></div><div class="legend"><span><i class="legend-dot case-dot"></i>Case</span><span><i class="legend-dot account-dot"></i>Account</span><span><i class="legend-dot digital-dot"></i>Digital</span><span><i class="legend-dot inferred-dot"></i>Inference</span></div></div><div id="network-svg-wrap" class="network-svg-wrap"></div></article>
+          <aside id="network-inspector" class="panel inspector"></aside>
+        </div>
+      </section>
+
+      <section id="view-leads" class="view">
+        <div class="lead-headline"><div><p class="eyebrow">HUMAN-IN-THE-LOOP</p><h2>AI เสนอ Lead — เจ้าหน้าที่เป็นผู้ตรวจสอบและตัดสินใจ</h2></div><div class="guardrail">No automated enforcement</div></div>
+        <div id="lead-list" class="lead-list"></div>
+      </section>
+
+      <section id="view-architecture" class="view">
+        <article class="panel">
+          <div class="panel-heading"><div><p class="eyebrow">INVESTIGATION-GRADE PROVENANCE</p><h2>Fact → Relationship → Analytic Inference</h2></div></div>
+          <div class="evidence-layers">
+            <div class="layer l0"><span>L0</span><strong>Raw Evidence</strong><p>เอกสาร · Chat · Slip · Screenshot · Transaction</p></div>
+            <div class="layer l1"><span>L1</span><strong>Extracted Fact</strong><p>บัญชี · เบอร์ · URL · เวลา · จำนวนเงิน</p></div>
+            <div class="layer l2"><span>L2</span><strong>Resolved Entity</strong><p>Normalize และรวม identity ที่ซ้ำกัน</p></div>
+            <div class="layer l3"><span>L3</span><strong>Observed Relationship</strong><p>ความสัมพันธ์ที่มี source รองรับ</p></div>
+            <div class="layer l4"><span>L4</span><strong>Analytic Inference</strong><p>ข้อสันนิษฐานพร้อม confidence + เหตุผล</p></div>
+            <div class="layer human"><span>H</span><strong>Human Review</strong><p>เจ้าหน้าที่ตรวจสอบก่อนนำไปใช้ในกระบวนการสืบสวน</p></div>
+          </div>
+        </article>
+        <div class="two-col architecture-grid">
+          <article class="panel"><p class="eyebrow">EDGE PROVENANCE</p><h2>ทุกเส้นใน Graph ต้องตอบได้ว่า “มาจากไหน”</h2><pre class="code-card">{
+  "source": "EVID-0017",
+  "timestamp": "2026-08-14T10:42:00+07:00",
+  "method": "exact_match",
+  "confidence": 1.00,
+  "review_status": "confirmed",
+  "reviewer": "demo-investigator"
+}</pre></article>
+          <article class="panel"><p class="eyebrow">DESIGN PRINCIPLE</p><h2>AI ไม่สร้างข้อกล่าวหาแทนเจ้าหน้าที่</h2><ul class="principle-list"><li><strong>Exact facts first:</strong> เริ่มจาก entity ที่ตรวจสอบย้อนกลับได้</li><li><strong>Inference is visibly different:</strong> เส้นประ/ป้าย “AI hypothesis”</li><li><strong>Source before score:</strong> ให้ evidence สำคัญกว่า confidence score</li><li><strong>Review before action:</strong> ไม่มีการอายัด/ปิดกั้น/กล่าวหาอัตโนมัติ</li></ul></article>
+        </div>
+      </section>
+      <section id="search-results" class="search-results" hidden></section>
+    </main>
+  </div>
+  <script src="./data/demo-data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
